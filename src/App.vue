@@ -1,16 +1,15 @@
 <template>
-  <img alt="Vue logo" src="src/assets/logo.png">
+
+  <el-config-provider :locale="locale">
+    <RouterView/>
+  </el-config-provider>
 
 </template>
 
-<script>
+<script setup>
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+const locale = zhCn
 
-
-export default {
-  name: 'App',
-  components: {
-  }
-}
 </script>
 
 <style >
