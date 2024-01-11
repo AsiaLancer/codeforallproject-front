@@ -1,10 +1,13 @@
 <template>
   <div v-if="props.isUpOrDown==='up' && isMountEnter" class="newElementBoxUp" :style="{left: offSetBoxStr}"   @mouseenter="myMouseenter" @mouseleave="myMouseleave">
-      <div class="innerLink" @click="goToPage()">
-
+      <div v-for="item in props.listData" class="innerLink" @click="goToPage(item.link)">
+      {{item.name}}
       </div>
   </div>
   <div v-else-if="props.isUpOrDown==='down' && isMountEnter" class="newElementBoxDown" :style="{left: offSetBoxStr}"   @mouseenter="myMouseenter" @mouseleave="myMouseleave">
+    <div v-for="item in props.listData" class="innerLink" @click="goToPage(item.link)">
+      {{item.name}}
+    </div>
   </div>
 
   <div  class="dialog-one1" :style="{left:offSetOneStr}"  v-if="props.isNeedList && props.isUpOrDown==='up'" @mouseenter="myMouseenter" @mouseleave="myMouseleave">
@@ -29,7 +32,7 @@ const goToPage = (link)=> {
 const props = defineProps({
   name:{type:String,required:true},
   isNeedList:{type:Boolean},
-  listData:{type:Array,required:true},
+  listData:{type:Array},
   offSet:{type:String,default:"0"},
   isUpOrDown:{type:String,default:"up"},
   link:{type:String,default:"#"}
@@ -37,6 +40,7 @@ const props = defineProps({
 /*
 做一个偏移效果
  */
+
 const offSetStr = ref(props.offSet).value;
 const offSetOneStr = parseInt(offSetStr,10)*9*10+200+"px";
 const offSetBoxStr = parseInt(offSetStr,10)*9*10+130+"px";
@@ -105,9 +109,9 @@ const myMouseenter = ()=>{
     top: 40px;
     width: 220px;
     height: 120px;
-    background: rgba(225, 225, 225, 0.4);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 6px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     transition: all 0.5s;
   }
   .newElementBoxDown{
@@ -116,9 +120,28 @@ const myMouseenter = ()=>{
     top: 230px;
     width: 220px;
     height: 120px;
-    background: rgba(225, 225, 225, 0.4);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 6px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     transition: all 0.5s;
+  }
+  .innerLink{
+    /*background: rgba(225, 225, 225, 0.4);*/
+    border: 1px solid red;
+    display: flex;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 5px;
+    width: 40%;
+    /*height: 30px;*/
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 6px;
+    user-select: none;
+  }
+
+  .innerLink:hover{
+    background: rgba(200,200,200,80%);
   }
 </style>
