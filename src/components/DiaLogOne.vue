@@ -106,6 +106,8 @@ const myMouseenter = ()=>{
   .newElementBoxUp{
     display: flex;
     position: absolute;
+    flex-wrap: wrap;
+    padding: 0 5px;
     top: 40px;
     width: 220px;
     height: 120px;
@@ -116,6 +118,7 @@ const myMouseenter = ()=>{
   }
   .newElementBoxDown{
     display: flex;
+    flex-wrap: wrap;
     position: absolute;
     top: 230px;
     width: 220px;
@@ -131,9 +134,10 @@ const myMouseenter = ()=>{
     display: flex;
     font-size: 13px;
     font-weight: bold;
+    width: 45%;
+    height: 30px;
     margin-left: 5px;
-    width: 40%;
-    /*height: 30px;*/
+    margin-top: 5px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
