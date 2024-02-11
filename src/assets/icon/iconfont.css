@@ -1,16 +1,52 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4408145 */
-  src: url('iconfont.woff2?t=1704989491201') format('woff2'),
-       url('iconfont.woff?t=1704989491201') format('woff'),
-       url('iconfont.ttf?t=1704989491201') format('truetype');
+  src: url('iconfont.woff2?t=1707558276422') format('woff2'),
+       url('iconfont.woff?t=1707558276422') format('woff'),
+       url('iconfont.ttf?t=1707558276422') format('truetype');
 }
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-next:before {
+  content: "\e61b";
+}
+
+.icon-next1:before {
+  content: "\e67e";
+}
+
+.icon-wenhuahuodong:before {
+  content: "\e600";
+}
+
+.icon-icon-zhuanlan-zhuanlanwenzhang:before {
+  content: "\e60a";
+}
+
+.icon-ketang:before {
+  content: "\e623";
+}
+
+.icon-15:before {
+  content: "\e626";
+}
+
+.icon-nav_xingerebang:before {
+  content: "\e632";
+}
+
+.icon-nav_shequzhongxin:before {
+  content: "\e633";
+}
+
+.icon-shangchuan:before {
+  content: "\e71a";
 }
 
 .icon-delete_fill:before {

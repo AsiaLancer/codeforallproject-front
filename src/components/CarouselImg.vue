@@ -1,60 +1,50 @@
 <template>
   <div class="carousel-box">
-
-    <img class="active" src="../assets/img_1.png">
-    <img src="../assets/img.png">
-    <img src="../assets/img_2.png">
-    <img src="../assets/img.png">
-    <img src="../assets/img_1.png">
-    <img src="../assets/img_2.png">
-    <img src="../assets/img.png">
-    <img src="../assets/img_1.png">
-    <img src="../assets/img_2.png">
-    <p class="active">第一幅图片</p>
-    <p>第二幅图片</p>
-    <p>第三幅图片</p>
-    <p>第四sad 片</p>
-    <p>第五 sad片</p>
-    <p>第六幅图片</p>
-    <p>第七幅 asd图片</p>
-    <p>第八幅图片</p>
-    <p>第九幅图片</p>
-
+    <div v-if="linkMessage.length>0">
+      <div v-for="(item,index) in linkMessage" :key="index">
+        <img :src="require(`../assets/${item.src}`)" :alt=item.message @click="goToPage(item.link)" v-if="index === 0" class="active">
+        <img :src="require(`../assets/${item.src}`)" :alt=item.message @click="goToPage(item.link)" v-else>
+      </div>
+    </div>
+    <div v-if="altMessage.length>0">
+      <div v-for="(item,index) in altMessage" :key="index">
+        <p v-if="index === 0" class="active">{{item}}</p>
+        <p v-else>{{item}}</p>
+      </div>
+    </div>
     <div class="button-change">
-      <div class="iconfont icon-next" @click="preIndex"/>
-      <div class="iconfont icon-next1" @click="nextIndex"/>
+      <div class="iconfont icon-next"/>
+      <div class="iconfont icon-next1"/>
     </div>
     <div class="carousel-box-list">
       <ul>
-        <li class="active"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li class="active"/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
       </ul>
-
-
     </div>
   </div>
 
 </template>
 <script setup>
 
-import {onMounted, onUnmounted, ref} from 'vue';
+import {defineProps, onMounted, onUnmounted, ref} from 'vue';
 
-var current = ref(0);
-const nextIndex = ()=>{
-  current.value++;
-  if (current.value>=9) current.value=0;
+const goToPage = (link) => {
+  window.open(link, "_blank");
 }
-const preIndex = () => {
-  current.value--;
-  if (current.value<=0) current.value=8;
-}
+const props = defineProps({
+  linkMessage: {type: Array, required: true},
+  altMessage:{type:Array,required:true}
+})
+const current = ref(0);
+
 function carouseImg() {
   let carouseon;
   let imgs;
@@ -64,18 +54,30 @@ function carouseImg() {
     const element = document.getElementsByClassName("carousel-box")[0];
 
     imgs = element.getElementsByTagName("img");
+    for (let i = 0; i < imgs.length; i++) {
+      imgs[i].addEventListener('click', () => {
 
+      })
+    }
     lis = element.getElementsByTagName("li");
-    ps = element.getElementsByTagName("p");
 
-    carouseon = setInterval(changecarouse, 2000);
+    ps = element.getElementsByTagName("p");
+    let pre = document.getElementsByClassName("icon-next")[0];
+    let next = document.getElementsByClassName("icon-next1")[0];
+    pre.addEventListener('click', () => {
+      downCarouse();
+    })
+    next.addEventListener('click', () => {
+      upCarouse();
+    })
+    carouseon = setInterval(upCarouse, 3000);
 
     element.addEventListener('mouseover', () => {
       clearInterval(carouseon);
     });
 
     element.addEventListener('mouseout', () => {
-      carouseon = setInterval(changecarouse, 2000);
+      carouseon = setInterval(upCarouse, 3000);
     });
 
     for (let i = 0; i < lis.length; i++) {
@@ -90,7 +92,7 @@ function carouseImg() {
   onUnmounted(() => {
     clearInterval(carouseon);
   });
-  // function changecarouse() {
+  // function changeCarouse() {
   //   carouseOff();
   //   let next = current.value + 1;
   //   if (next >= 9) next = 0;
@@ -124,21 +126,28 @@ function carouseImg() {
   }
 
   function carouseOn() {
-
     imgs[current.value].className = "active";
     lis[current.value].className = "active";
     ps[current.value].className = "active";
   }
 
-  function changecarouse() {
+  function upCarouse() {
     carouseOff();
     current.value++;
-    if (current.value >= 9) current.value = 0;
+    if (current.value > 8) current.value = 0;
+    carouseOn();
+  }
+
+  function downCarouse() {
+    carouseOff();
+    current.value--;
+    if (current.value < 0) current.value = 8;
     carouseOn();
   }
 }
 
 carouseImg();
+
 
 </script>
 
@@ -161,7 +170,8 @@ carouseImg();
   font-weight: 160;
   cursor: pointer;
 }
-.icon-next:hover,.icon-next1:hover {
+
+.icon-next:hover, .icon-next1:hover {
   background: rgba(200, 200, 200, 90%);
 }
 
@@ -185,6 +195,7 @@ carouseImg();
 }
 
 .carousel-box img {
+  cursor: pointer;
   position: absolute;
   width: 550px;
   height: auto;
@@ -192,7 +203,7 @@ carouseImg();
   transition: opacity 1s linear;
 }
 
-.carousel-box img.active{
+.carousel-box img.active {
   opacity: 1;
 }
 
@@ -217,6 +228,8 @@ carouseImg();
   border-radius: 50%; /* 设置为圆形 */
   background: #ccc; /* 设置背景颜色 */
   margin: 0 4px; /* 设置相邻指示器之间的间距 */
+  cursor: pointer;
+
 }
 
 .carousel-box li.active {
@@ -232,6 +245,8 @@ carouseImg();
   color: rgba(255, 255, 255, 0.84);
   opacity: 0;
   transition: all 0.5s;
+  cursor: pointer;
+
 }
 
 .carousel-box p.active {

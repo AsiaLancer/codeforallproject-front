@@ -5,15 +5,15 @@
   <!--  </div>-->
 
   <div class="carousel-box">
-        <img class="active" src="../assets/img_1.png">
+        <img class="active" src="src/assets/img1.png">
         <img src="../assets/img.png">
-        <img src="../assets/img_2.png">
+        <img src="src/assets/img2.png">
         <img src="../assets/img.png">
-        <img src="../assets/img_1.png">
-        <img src="../assets/img_2.png">
+        <img src="src/assets/img1.png">
+        <img src="src/assets/img2.png">
         <img src="../assets/img.png">
-        <img src="../assets/img_1.png">
-        <img src="../assets/img_2.png">
+        <img src="src/assets/img1.png">
+        <img src="src/assets/img2.png">
 
   </div>
 

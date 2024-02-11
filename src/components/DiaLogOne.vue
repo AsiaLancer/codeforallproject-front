@@ -27,7 +27,7 @@
 <script setup>
 import {ref,onMounted,defineProps} from "vue";
 const goToPage = (link)=> {
-  window.open(link,"_blank")
+  window.open(link,"_blank");
 }
 const props = defineProps({
   name:{type:String,required:true},
@@ -63,6 +63,9 @@ const myMouseenter = ()=>{
 </script>
 
 <style scoped>
+*{
+  font-family: "Microsoft YaHei", Arial, Helvetica;
+}
   .dialog-one1{
     /*border: 1px solid #555;*/
     position: absolute;
@@ -115,6 +118,7 @@ const myMouseenter = ()=>{
     border-radius: 6px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     transition: all 0.5s;
+    z-index: 99;
   }
   .newElementBoxDown{
     display: flex;
@@ -127,6 +131,7 @@ const myMouseenter = ()=>{
     border-radius: 6px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     transition: all 0.5s;
+    z-index: 99;
   }
   .innerLink{
     /*background: rgba(225, 225, 225, 0.4);*/

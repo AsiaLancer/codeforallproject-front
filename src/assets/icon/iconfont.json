@@ -6,6 +6,69 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "16711165",
+      "name": "next",
+      "font_class": "next",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "36204194",
+      "name": "next",
+      "font_class": "next1",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "7050329",
+      "name": "文化活动",
+      "font_class": "wenhuahuodong",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "7402195",
+      "name": "icon-专栏-专栏文章",
+      "font_class": "icon-zhuanlan-zhuanlanwenzhang",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "10431857",
+      "name": "课堂",
+      "font_class": "ketang",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "11125636",
+      "name": "直播",
+      "font_class": "15",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "27348372",
+      "name": "nav_新歌热榜",
+      "font_class": "nav_xingerebang",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "27348453",
+      "name": "nav_社区中心",
+      "font_class": "nav_shequzhongxin",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "4266177",
+      "name": "上传",
+      "font_class": "shangchuan",
+      "unicode": "e71a",
+      "unicode_decimal": 59162
+    },
+    {
       "icon_id": "7008918",
       "name": "delete_fill",
       "font_class": "delete_fill",
