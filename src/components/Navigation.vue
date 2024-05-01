@@ -121,6 +121,10 @@ const clearInput = () => {
   justify-content: center;
   align-items: center;
   background-color: #FB7299;
+  cursor: pointer;
+}
+.nav-right-upload:hover{
+  background-color: #fd7ca1;
 }
 .nav-right-icon{
   text-align: center;

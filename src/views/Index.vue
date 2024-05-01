@@ -65,10 +65,9 @@
     <div class="video-container">
       <VideoCard/>
     </div>
-<!--      <div>-->
-<!--        <TempVue/>-->
-<!--      </div>-->
-
+      <div>
+        <Calendar/>
+      </div>
 
 </template>
 
@@ -78,6 +77,7 @@ import DiaLogOne from "@/components/DiaLogOne.vue";
 import Navigation from "@/components/Navigation";
 import CarouselImg from "@/components/CarouselImg";
 import VideoCard from "@/components/VideoCard";
+import Calendar from "@/components/Calendar";
 // import TempVue from "@/components/TempVue.vue";
 
 
