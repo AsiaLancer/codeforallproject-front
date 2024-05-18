@@ -16,6 +16,31 @@ const router = createRouter({
             path: '/css',
             name: 'css动画',
             component: () => import('../views/CssAnimation.vue')
+        },
+        {
+            path: '/train',
+            name: 'train',
+            component: () => import('../components/TrainStation.vue')
+        },
+        {
+            path: '/inputSearch',
+            name: 'inputSearch',
+            component: () => import('../components/InputSearch.vue')
+        },
+        {
+            path: '/calendar',
+            name: 'calendar',
+            component: () => import('../components/Calendar.vue')
+        },
+        {
+            path: '/travel/login',
+            name: 'travelLogin',
+            component: () => import('../views/TravelLogin.vue')
+        },
+        {
+            path: '/travel/index',
+            name: 'travelIndex',
+            component: () => import('../views/TravelIndex.vue')
         }
     ]
 })

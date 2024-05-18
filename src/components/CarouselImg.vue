@@ -1,9 +1,9 @@
 <template>
-  <div class="carousel-box">
+  <div class="carousel-box" :style="{width:props.width,height:props.height,top:props.top,left:props.left}">
     <div v-if="linkMessage.length>0">
       <div v-for="(item,index) in linkMessage" :key="index">
-        <img :src="require(`../assets/${item.src}`)" :alt=item.message @click="goToPage(item.link)" v-if="index === 0" class="active">
-        <img :src="require(`../assets/${item.src}`)" :alt=item.message @click="goToPage(item.link)" v-else>
+        <img :style="{width: props.width}" :src="require(`../assets/${item.src}`)" :alt=item.message @click="goToPage(item.link)" v-if="index === 0" class="active">
+        <img :style="{width: props.width}" :src="require(`../assets/${item.src}`)" :alt=item.message @click="goToPage(item.link)" v-else>
       </div>
     </div>
     <div v-if="altMessage.length>0">
@@ -19,14 +19,7 @@
     <div class="carousel-box-list">
       <ul>
         <li class="active"/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
+        <li v-for="item in size-1"/>
       </ul>
     </div>
   </div>
@@ -41,7 +34,12 @@ const goToPage = (link) => {
 }
 const props = defineProps({
   linkMessage: {type: Array, required: true},
-  altMessage:{type:Array,required:true}
+  altMessage:{type:Array,required:true},
+  size:{type:Number,required:true},
+  width:{type:String,default:'550px'},
+  height:{type:String,default:'380px'},
+  left:{type:String,default:'0'},
+  top:{type:String,default:'0'}
 })
 const current = ref(0);
 
@@ -92,33 +90,6 @@ function carouseImg() {
   onUnmounted(() => {
     clearInterval(carouseon);
   });
-  // function changeCarouse() {
-  //   carouseOff();
-  //   let next = current.value + 1;
-  //   if (next >= 9) next = 0;
-  //   current.value = next;
-  //   carouseOn();
-  // }
-  //
-  // function carouseOff() {
-  //   const next = current.value + 1;
-  //   if (next >= 9) imgs[0].className = "";
-  //   else imgs[next].className = "";
-  //
-  //   imgs[current.value].className = "";
-  //   lis[current.value].className = "";
-  //   ps[current.value].className = "";
-  // }
-  //
-  // function carouseOn() {
-  //   const next = current.value + 1;
-  //   if (next >= 9) imgs[0].className = "active";
-  //   else imgs[next].className = "active";
-  //
-  //   imgs[current.value].className = "active";
-  //   lis[current.value].className = "active";
-  //   ps[current.value].className = "active";
-  // }
   function carouseOff() {
     imgs[current.value].className = "";
     lis[current.value].className = "";
@@ -134,14 +105,14 @@ function carouseImg() {
   function upCarouse() {
     carouseOff();
     current.value++;
-    if (current.value > 8) current.value = 0;
+    if (current.value > props.size-1) current.value = 0;
     carouseOn();
   }
 
   function downCarouse() {
     carouseOff();
     current.value--;
-    if (current.value < 0) current.value = 8;
+    if (current.value < 0) current.value = props.size-1;
     carouseOn();
   }
 }
@@ -185,11 +156,7 @@ carouseImg();
 }
 
 .carousel-box {
-  width: 550px;
-  height: 380px;
   overflow: hidden;
-  left: 60px;
-  top: 50px;
   position: relative;
   border-radius: 8px;
 }
@@ -197,7 +164,6 @@ carouseImg();
 .carousel-box img {
   cursor: pointer;
   position: absolute;
-  width: 550px;
   height: auto;
   opacity: 0;
   transition: opacity 1s linear;
@@ -211,7 +177,6 @@ carouseImg();
   position: absolute;
   left: 2%;
   bottom: 10px;
-
   display: flex; /* 列表项横向排列 */
 }
 

@@ -6,6 +6,41 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "8776631",
+      "name": "view",
+      "font_class": "icon-test",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "8776676",
+      "name": "view_off",
+      "font_class": "icon-test1",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "8777038",
+      "name": "lock",
+      "font_class": "icon-test12",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    },
+    {
+      "icon_id": "8777250",
+      "name": "user",
+      "font_class": "icon-test13",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "688062",
+      "name": "地球 全球",
+      "font_class": "diqiuquanqiu",
+      "unicode": "e76c",
+      "unicode_decimal": 59244
+    },
+    {
       "icon_id": "16711165",
       "name": "next",
       "font_class": "next",

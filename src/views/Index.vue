@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="carousel-index">
-      <CarouselImg :link-message="linkMessage" :alt-message="altMessage"/>
+      <CarouselImg :link-message="linkMessage" :alt-message="altMessage" :size="9" :left="'60px'" :top="'50px'"/>
     </div>
     <div class="video-container">
       <VideoCard/>
